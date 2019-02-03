@@ -11,7 +11,7 @@ FUNCTIONAL LOGIC:
 +, -, *, /
 
 */
-const operation = {};
+const Operation = {};
 
 const add = (num1, num2) =>  num1 + num2;
 
@@ -21,17 +21,17 @@ const subtract = (num1, num2) => num1 - num2;
 
 const divide = (num1, num2) => (num1 / num2);
 
-operation.percentage = (num) => num / 100;
+Operation.percentage = (num) => num / 100;
 
-operation.convertPos_Neg = (num) => num * -1;
+Operation.convertPos_Neg = (num) => num * -1;
 
-operation.result = (num1, num2, opStr) => {
+Operation.result = (num1, num2, opStr) => {
     if (opStr === '*') {
         return multiply(num1, num2)
     } else if (opStr === '+') {
         return add(num1, num2);
     } else if (opStr === '-') {
-        return substract(num1, num2);
+        return subtract(num1, num2);
     } else if (opStr === '/') {
         return divide(num1, num2);
     }
