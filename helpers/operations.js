@@ -1,19 +1,19 @@
-/*
+/* 
+NOTES:
+DIRECT STATE MANIUPLATION
 AC CLEARS ALL DATA ON THE SCREEN
 C CLEAR CURRENTNUM 
 . ADD A DOT TO THE CURRENTNUM
+
+FUNCTIONAL LOGIC:
 = PERFORMS OPERATIONS
-_____________
-+- 
-MULTIPLIES  by -1 or + 
-. 
-= 
-Take num from state and perform operation 
+± MULTIPLIES  by -1 or + 
++, -, *, /
 
 */
 const operation = {};
 
-const add = (num1, num2) => num1 + num2;
+const add = (num1, num2) =>  num1 + num2;
 
 const multiply = (num1, num2) => num1 * num2;
 
@@ -38,3 +38,4 @@ operation.result = (num1, num2, opStr) => {
 }
 
 export default operation;
+
