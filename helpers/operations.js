@@ -1,20 +1,41 @@
+/* 
+NOTES:
+DIRECT STATE MANIUPLATION
+AC CLEARS ALL DATA ON THE SCREEN
+C CLEAR CURRENTNUM 
+. ADD A DOT TO THE CURRENTNUM
+
+FUNCTIONAL LOGIC:
+= PERFORMS OPERATIONS
+± MULTIPLIES  by -1 or + 
++, -, *, /
+
+*/
+const operation = {};
+
 const add = (num1, num2) =>  num1 + num2;
 
 const multiply = (num1, num2) => num1 * num2;
 
 const subtract = (num1, num2) => num1 - num2;
 
-const divide = (num1, num2) => (num1/num2);
+const divide = (num1, num2) => (num1 / num2);
 
-const percentage = (num) => num / 100;
+operation.percentage = (num) => num / 100;
 
-const convertPos_Neg = (num) => num * -1;
+operation.convertPos_Neg = (num) => num * -1;
 
-console.log(add(1,2), 'add')
-console.log(multiply(5,10), 'multiply')
-console.log(subtract(200,10), 'subtract')
-console.log(percentage(200), 'percent')
-console.log(convertPos_Neg(69), 'convert')
-console.log(convertPos_Neg(-20), 'convert')
+operation.result = (num1, num2, opStr) => {
+    if (opStr === '*') {
+        return multiply(num1, num2)
+    } else if (opStr === '+') {
+        return add(num1, num2);
+    } else if (opStr === '-') {
+        return substract(num1, num2);
+    } else if (opStr === '/') {
+        return divide(num1, num2);
+    }
+}
 
-// export {add, multiply, subtract, divide, convertPos_Neg};
+export default operation;
+
