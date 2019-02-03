@@ -1,11 +1,11 @@
 import React from 'react';
 
-class Display extend React.Component {
+class Display extends React.Component {
     render(){
         return (
-            <>
+            
             <h1>Display Num!</h1>
-            </>
+            
         );
     } 
 }
