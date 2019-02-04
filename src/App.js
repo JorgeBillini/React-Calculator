@@ -9,20 +9,26 @@ class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            displayVal : 0,
+            displayVal : 1,
             previousVal: null,
             operation: null,
             waitingForNewValue: false,
         }
     }
-
+    ACevent = dv =>{
+    const {displayVal} = this.state;
+    this.setState({displayVal:dv});
+    }
+    
     render(){
+        console.log(this.state)
         return (
             <>
-                <Display />
-                <ExtraOPs />
-                <Ops />
-                <Numbers /> 
+                {/* <Display /> */}
+                <ExtraOPs ACevent={this.ACevent} />
+                
+                {/* <Ops /> */}
+                {/* <Numbers />  */}
             </>
         );
     }
