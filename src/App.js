@@ -9,7 +9,7 @@ class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            displayVal : 0,
+            displayVal : 1,
             previousVal: null,
             operation: null,
             waitingForNewValue: false,
