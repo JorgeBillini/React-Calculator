@@ -1,8 +1,8 @@
 import React from 'react';
-import Operation from './helpers/operations';
-import ExtraOPs from './components/extraOps'
+// import Operation from './helpers/operations';
+import ExtraOPs from './components/extraOps';
 import Display from './components/display';
-import Numbers from './components/numbers';
+// import Numbers from './components/numbers';
 import Ops from './components/ops';
 
 class App extends React.Component {
