@@ -21,7 +21,10 @@ class App extends React.Component {
     }
     Percevent = dv =>{
         const {displayVal} = this.state;
-        console.log(dv);
+        this.setState({displayVal:dv})
+    }
+    PlusMinusEvent = dv => {
+        const {displayVal} = this.state;
         this.setState({displayVal:dv})
     }
     
@@ -30,7 +33,7 @@ class App extends React.Component {
         return (
             <>
                 {/* <Display /> */}
-                <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} displayVal= {this.state.displayVal} />
+                <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
                 
                 {/* <Ops /> */}
                 {/* <Numbers />  */}
