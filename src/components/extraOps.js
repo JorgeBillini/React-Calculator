@@ -1,5 +1,11 @@
 import React from 'react';
+// import  from '../helpers/operations'
 //this.props.datalol.displayVal
+const bStyle ={
+    padding:`20px 50px 10px 50px`,
+    fontSize:`150px`,
+ 
+ }
 class ExtraOps extends React.Component{
     constructor(props){
         super(props);
@@ -7,12 +13,18 @@ class ExtraOps extends React.Component{
     HandleAcClick = () =>{
         let newDisplayVal = 0;
         this.props.ACevent(newDisplayVal)
+        
+    }
+    
+    HandlePercentage = () =>{
+        let newDisplayVal = (this.props.displayVal / 100);
+        this.props.PercentageEvent(newDisplayVal);
     }
     render (){
         return (
             <>
-            <button className='btn bg-warning btn-sm' onClick={this.HandleAcClick} />
-            <h1>%</h1>
+            <button className='btn bg-warning btn-sm' onClick={this.HandleAcClick} style={bStyle}> AC</button>
+            <button className='btn bg-warning btn-sm' onClick={this.HandlePercentage} style={bStyle}> %  </button>
             <h1>±</h1>
         </>
         )
