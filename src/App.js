@@ -32,9 +32,10 @@ class App extends React.Component {
         console.log(this.state)
         return (
             <>
-                {/* <Display /> */}
-                <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
-                
+             <Display displayVal={this.state.displayVal}/>
+             <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
+             <Ops addOperation={this.addOperation}/>
+
                 {/* <Ops /> */}
                 {/* <Numbers />  */}
             </>
