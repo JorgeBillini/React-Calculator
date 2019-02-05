@@ -54,9 +54,10 @@ if(num is clicked){
         console.log(this.state);
         return (
             <>
-                <Display displayVal={this.state.displayVal}/>
-                {/* <ExtraOPs /> */}
-                <Ops addOperation={this.addOperation}/>
+                {/* <Display /> */}
+                <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
+                
+                {/* <Ops /> */}
                 {/* <Numbers />  */}
             </>
         );

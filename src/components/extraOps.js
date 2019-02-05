@@ -21,12 +21,18 @@ class ExtraOps extends React.Component{
         let newDisplayVal = this.props.displayVal / 100;
         this.props.Percevent(newDisplayVal);
     }
+    HandlePositiveNegative = () =>{
+        console.log(typeof(this.props.displayVal))
+        let newDisplayVal = this.props.displayVal * -1;
+        this.props.PlusMinusEvent(newDisplayVal);
+    }
     render (){
         return (
             <>
             <button className='btn bg-warning btn-sm' onClick={this.HandleAcClick} style={bStyle}> AC</button>
-            <button className='btn bg-warning btn-sm' onClick={this.HandlePercentage} style={bStyle}> %  </button>
-            <h1>±</h1>
+            <button className='btn bg-warning btn-sm' onClick={this.HandlePercentage} style={bStyle}> % </button>
+            <button className='btn bg-warning btn-sm' onClick={this.HandlePositiveNegative} style={bStyle}>±</button>
+
         </>
         )
         
