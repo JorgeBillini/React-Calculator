@@ -19,13 +19,17 @@ class App extends React.Component {
     const {displayVal} = this.state;
     this.setState({displayVal:dv});
     }
+    Percentageevent = dv =>{
+        const {displayVal} = this.state;
+        this.setState({displayVal:dv})
+    }
     
     render(){
         console.log(this.state)
         return (
             <>
                 {/* <Display /> */}
-                <ExtraOPs ACevent={this.ACevent} />
+                <ExtraOPs ACevent={this.ACevent} Percentageevent={this.Percentageevent} />
                 
                 {/* <Ops /> */}
                 {/* <Numbers />  */}
