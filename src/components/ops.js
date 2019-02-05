@@ -55,16 +55,16 @@ class Ops extends React.Component {
             <div style={fStyle}>
 
                 <div className='' style={dStyle}>
-                    <p onClick={this.handleOperation('/')} style={pStyle}>/</p>
+                    <p onClick={this.handleDivision} style={pStyle}>/</p>
                 </div>
                 <div className='' style={dStyle}>
-                    <p onClick={this.handleOperation('*')} style={pStyle}>*</p>
+                    <p onClick={this.handleMultiply} style={pStyle}>*</p>
                 </div>
                 <div className='' style={dStyle}>
-                    <p onClick={this.handleOperation('+')} style={pStyle}>+</p>
+                    <p onClick={this.handleAddition} style={pStyle}>+</p>
                 </div>
                 <div className='' style={dStyle}>
-                    <p onClick={this.handleOperation('-')} style={pStyle}>-</p>
+                    <p onClick={this.handleSubtract} style={pStyle}>-</p>
                 </div>
 
             </div>
