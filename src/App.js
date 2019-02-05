@@ -44,11 +44,24 @@ if(num is clicked){
 }
 
 */
+Percevent = dv =>{
+    const {displayVal} = this.state;
+    console.log(dv);
+    this.setState({displayVal:dv})
+}
+PlusMinusEvent = dv => {
+    const {displayVal} = this.state;
+    this.setState({displayVal:dv})
+}
+ACevent = dv =>{
+    const {displayVal} = this.state;
+    this.setState({displayVal:dv});
+}
 
-    addOperation = (opStr) => {
+addOperation = (opStr) => {
         const {operation} = this.state;
         this.setState({operation: opStr});
-      }
+}
 
     render(){
         console.log(this.state);
