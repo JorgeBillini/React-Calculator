@@ -9,7 +9,7 @@ class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            displayVal : 1,
+            displayVal : 100,
             previousVal: null,
             operation: null,
             waitingForNewValue: false,
@@ -19,8 +19,9 @@ class App extends React.Component {
     const {displayVal} = this.state;
     this.setState({displayVal:dv});
     }
-    Percentageevent = dv =>{
+    Percevent = dv =>{
         const {displayVal} = this.state;
+        console.log(dv);
         this.setState({displayVal:dv})
     }
     
@@ -29,7 +30,7 @@ class App extends React.Component {
         return (
             <>
                 {/* <Display /> */}
-                <ExtraOPs ACevent={this.ACevent} Percentageevent={this.Percentageevent} />
+                <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} displayVal= {this.state.displayVal} />
                 
                 {/* <Ops /> */}
                 {/* <Numbers />  */}

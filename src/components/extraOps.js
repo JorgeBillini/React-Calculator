@@ -17,8 +17,9 @@ class ExtraOps extends React.Component{
     }
     
     HandlePercentage = () =>{
-        let newDisplayVal = (this.props.displayVal / 100);
-        this.props.PercentageEvent(newDisplayVal);
+        console.log(this.props.displayVal)
+        let newDisplayVal = this.props.displayVal / 100;
+        this.props.Percevent(newDisplayVal);
     }
     render (){
         return (
