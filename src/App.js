@@ -15,63 +15,27 @@ class App extends React.Component {
             waitingForNewValue: false,
         }
     }
-
-    /*
-    const {displayVal, previousVal, operation, waitingForNewValue} = this.state;
-
-
-if(operation is clicked){
-    if(operation && waitingForNewValue){
-
-    }
-
-    if(operation && waitingForNewValue){
-        this.setState({operation: opStr})
-    }
-
-     this.setState({waitingForNewValue:true})
-}
-
-if(num is clicked){
-    if(!displayVal){
-        this.setState({displayVal: num})
-    } else {
-        const newDisplayValue = displayVal + num;
-        this.setState({displayVal: newDisplayValue,)
-    }
-
-    this.setState({waitingForNewValue:false})
-}
-
-*/
-Percevent = dv =>{
-    const {displayVal} = this.state;
-    console.log(dv);
-    this.setState({displayVal:dv})
-}
-PlusMinusEvent = dv => {
-    const {displayVal} = this.state;
-    this.setState({displayVal:dv})
-}
-ACevent = dv =>{
+    ACevent = dv =>{
     const {displayVal} = this.state;
     this.setState({displayVal:dv});
-}
-
-addOperation = (opStr) => {
-        const {operation} = this.state;
-        this.setState({operation: opStr});
-}
-
+    }
+    Percevent = dv =>{
+        const {displayVal} = this.state;
+        this.setState({displayVal:dv})
+    }
+    PlusMinusEvent = dv => {
+        const {displayVal} = this.state;
+        this.setState({displayVal:dv})
+    }
+    
     render(){
-        console.log(this.state);
+        console.log(this.state)
         return (
             <>
                 {/* <Display /> */}
                 <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
                 
-                <Ops addOperation={this.addOperation}/>
- 
+                {/* <Ops /> */}
                 {/* <Numbers />  */}
             </>
         );
