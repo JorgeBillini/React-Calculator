@@ -70,7 +70,8 @@ addOperation = (opStr) => {
                 {/* <Display /> */}
                 <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
                 
-                {/* <Ops /> */}
+                <Ops addOperation={this.addOperation}/>
+ 
                 {/* <Numbers />  */}
             </>
         );
