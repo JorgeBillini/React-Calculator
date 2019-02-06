@@ -38,17 +38,32 @@ class App extends React.Component {
         return (
             <>
              <Display displayVal={this.state.displayVal}/>
-             <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
              <Ops addOperation={this.addOperation}/>
-             {
-                this.arr.map((e,i)=>{
-                    return(
-                     <div className ='row'>
-                    <Numbers num={e}></Numbers>
-                    </div>
-                    )
-                })
-            }
+             <br></br>
+             <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
+            <div className='row'>
+            <Numbers className='col' num={9} />
+            <Numbers className='col' num={8} />
+            <Numbers className='col' num={7} />
+            </div>
+            <div className='row'>
+            <Numbers className='col' num={6} />
+            <Numbers className='col' num={5} />
+            <Numbers className='col' num={4} />
+            </div>
+            <div className='row'>
+            <Numbers className='col' num={3} />
+            <Numbers className='col' num={2} />
+            <Numbers className='col' num={1} />
+            </div>
+            <div className='row'>
+            <Numbers className='col' num={0} />
+            <Numbers className='col' num={'.'} />
+            
+            </div>
+            
+            
+            
             
             
            

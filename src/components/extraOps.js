@@ -3,12 +3,15 @@ import React from 'react';
 //this.props.datalol.displayVal
 const bStyle ={
     padding:`20px 50px 10px 50px`,
-    fontSize:`150px`,
+    fontSize:`30px`,
  
  }
 class ExtraOps extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
+            isThereDisplay: false
+        }
     }
     HandleAcClick = () =>{
         let newDisplayVal = 0;

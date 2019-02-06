@@ -2,8 +2,8 @@ import React from 'react';
 
 const bStyle ={
     padding:`20px 50px 10px 50px`,
-    fontSize:`150px`,
-    color:'red'
+    fontSize:`30px`,
+    color:'black'
  }
 
 class Numbers extends React.Component {
