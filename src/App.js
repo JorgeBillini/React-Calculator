@@ -27,6 +27,10 @@ class App extends React.Component {
         const {displayVal} = this.state;
         this.setState({displayVal:dv})
     }
+    addOperation = operator =>{
+        const newOperation = operator
+        this.setState({operation:operator})
+    }
      arr= [9,8,7,6,5,4,3,2,1]
 
     render(){

@@ -1,35 +1,17 @@
 import React from 'react';
 import {result} from '../helpers/operations';
-
+import '../app.css'
 /* <p style={button}>*</p> */
-const fStyle = {
-    display: 'flex',
-    justifyContent: 'space-around',
-    // width: '500px',
-    // flexDirection: 'column',
-    postion:'right'
-}
-
-const pStyle = {
-    fontSize: '200px',
-    textAlign: 'center',
-    color: '#52536d'
-
-};
-
-const dStyle = {
-    margin: '20px 30px',
-    width: '300px',
-    height: '250px',
-    // borderRadius: '30px',
-    // border: '10px solid #52536d',
-    borderLeft: '10px solid #52536d',
-    borderBottom: '10px solid #52536d',
-}
+const bStyle ={
+    padding:`20px 50px 10px 50px`,
+    fontSize:`150px`,
+ 
+ }
 
 class Ops extends React.Component {
 
     handleDivision = () => {
+        
         this.props.addOperation('/');
     }
 
@@ -52,22 +34,10 @@ class Ops extends React.Component {
     render(){
         return (
             <>
-            <div style={fStyle}>
-
-                <div className='' style={dStyle}>
-                    <p onClick={this.handleDivision} style={pStyle}>/</p>
-                </div>
-                <div className='' style={dStyle}>
-                    <p onClick={this.handleMultiply} style={pStyle}>*</p>
-                </div>
-                <div className='' style={dStyle}>
-                    <p onClick={this.handleAddition} style={pStyle}>+</p>
-                </div>
-                <div className='' style={dStyle}>
-                    <p onClick={this.handleSubtract} style={pStyle}>-</p>
-                </div>
-
-            </div>
+            <button className='btn bg-warning btn-sm' onClick={this.handleDivision} style={bStyle}> %</button>
+            <button className='btn bg-warning btn-sm' onClick={this.handleMultiply} style={bStyle}>X</button>
+            <button className='btn bg-warning btn-sm' onClick={this.handleAddition} style={bStyle}>+</button>
+            <button className='btn bg-warning btn-sm' onClick={this.handleSubtract} style={bStyle}>-</button>
             
             </>
         );
