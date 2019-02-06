@@ -4,60 +4,69 @@ import ExtraOPs from './components/extraOps';
 import Display from './components/display';
 // import Numbers from './components/numbers';
 import Ops from './components/ops';
-
+import Numbers from './components/numbers'
 class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            displayVal : 0,
+            displayVal : 100,
             previousVal: null,
             operation: null,
             waitingForNewValue: false,
         }
     }
-
-    /*
-    const {displayVal, previousVal, operation, waitingForNewValue} = this.state;
-
-
-if(operation is clicked){
-    if(operation && waitingForNewValue){
-
+    ACevent = dv =>{
+    const {displayVal} = this.state;
+    this.setState({displayVal:dv});
     }
-
-    if(operation && waitingForNewValue){
-        this.setState({operation: opStr})
+    Percevent = dv =>{
+        const {displayVal} = this.state;
+        this.setState({displayVal:dv})
     }
-
-     this.setState({waitingForNewValue:true})
-}
-
-if(num is clicked){
-    if(!displayVal){
-        this.setState({displayVal: num})
-    } else {
-        const newDisplayValue = displayVal + num;
-        this.setState({displayVal: newDisplayValue,)
+    PlusMinusEvent = dv => {
+        const {displayVal} = this.state;
+        this.setState({displayVal:dv})
     }
-
-    this.setState({waitingForNewValue:false})
-}
-
-*/
-
-    addOperation = (opStr) => {
-        const {operation} = this.state;
-        this.setState({operation: opStr});
-      }
+    addOperation = operator =>{
+        const newOperation = operator
+        this.setState({operation:operator})
+    }
+     arr= [9,8,7,6,5,4,3,2,1]
 
     render(){
-        console.log(this.state);
+        console.log(this.state)
         return (
             <>
-                <Display displayVal={this.state.displayVal}/>
-                {/* <ExtraOPs /> */}
-                <Ops addOperation={this.addOperation}/>
-                {/* <Numbers />  */}
+             <Display displayVal={this.state.displayVal}/>
+             <Ops addOperation={this.addOperation}/>
+             <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
+            <div className='row'>
+            <Numbers className='col' num={7} />
+            <Numbers className='col' num={8} />
+            <Numbers className='col' num={9} />
+            </div>
+            <div className='row'>
+            <Numbers className='col' num={4} />
+            <Numbers className='col' num={5} />
+            <Numbers className='col' num={6} />
+            </div>
+            <div className='row'>
+            <Numbers className='col' num={1} />
+            <Numbers className='col' num={2} />
+            <Numbers className='col' num={3} />
+            </div>
+            <div className='row'>
+            <Numbers className='col' num={0} />
+            <Numbers className='col' num={'.'} />
+            
+            </div>
+            
+            
+            
+            
+            
+           
+            
             </>
         );
     }

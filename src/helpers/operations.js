@@ -37,5 +37,7 @@ Operation.result = (num1, num2, opStr) => {
     }
 }
 
-export default Operation;
+export {
+    Operation
+};
 
