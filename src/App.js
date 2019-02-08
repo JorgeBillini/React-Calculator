@@ -2,12 +2,13 @@ import React from 'react';
 import ExtraOPs from './components/extraOps';
 import Display from './components/display';
 import Ops from './components/ops';
-import Numbers from './components/numbers'
+import Numbers from './components/numbers';
+
 class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            displayVal : 0,
+            displayVal : "0",
             previousVal: null,
             operation: null,
             waitingForNewValue: true,
@@ -23,13 +24,21 @@ class App extends React.Component {
     PlusMinusEvent = dv => {
         this.setState({displayVal:dv})
     }
-    addOperation = operator =>{
-        
-        this.setState({operation:operator})
+    addOperation = object => {
+        const {result, opStr} = object;
+        const {displayVal, previousVal, operation, waitingForNewValue} = this.state;
+        this.setState({
+            displayVal: result, 
+            previousVal: null, 
+            operation: opStr, 
+            waitingForNewValue: true})
     }
+    
+    arr= [9,8,7,6,5,4,3,2,1]
+
+    
     // RM this
    
-     arr= [9,8,7,6,5,4,3,2,1]
      numButtonClick = dvi =>{
          let newPreviousVal = this.state.displayVal
          if (this.state.displayVal > 0) {
@@ -39,7 +48,6 @@ class App extends React.Component {
          console.log(this.state)
     }
     render(){
-        console.log(this.state)
         return (
             <>
              <Display displayVal={this.state.displayVal}/>
@@ -55,10 +63,12 @@ class App extends React.Component {
             }
          </div>
             <div className='row-2'>
-            <Ops addOperation={this.addOperation}></Ops>
+           <Ops addOperation={this.addOperation} state={this.state}/>
+
             </div>
             <button >RESOLVE</button>
             </div>
+            
             </>
         );
     }
