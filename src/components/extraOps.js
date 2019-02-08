@@ -32,9 +32,9 @@ class ExtraOps extends React.Component{
     render (){
         return (
             <>
-            <button className='btn bg-warning btn-sm' onClick={this.HandleAcClick} style={bStyle}> AC</button>
-            <button className='btn bg-warning btn-sm' onClick={this.HandlePercentage} style={bStyle}> % </button>
-            <button className='btn bg-warning btn-sm' onClick={this.HandlePositiveNegative} style={bStyle}>±</button>
+            <button className='button' onClick={this.HandleAcClick} > AC</button>
+            <button className='button' onClick={this.HandlePercentage} > % </button>
+            <button className='button' onClick={this.HandlePositiveNegative} >±</button>
 
         </>
         )

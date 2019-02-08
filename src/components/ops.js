@@ -27,27 +27,15 @@ class Ops extends React.Component {
         this.props.addOperation('-');
     }
 
-    handleOperation = (e) => {
-        console.log(e.target.value, 'Is our target');
-        // this.props.addOperation(opStr);
-    }
 
     render(){
         return (
             <>
-            <div className='row'>
-            <button className='btn bg-warning btn-sm' onClick={this.handleDivision} style={bStyle}>/</button>
-            </div>
-            <div className= 'row'>
-            <button className='btn bg-warning btn-sm' onClick={this.handleMultiply} style={bStyle}>X</button>
-            </div>
-            <div className= 'row'>
-            <button className='btn bg-warning btn-sm' onClick={this.handleAddition} style={bStyle}>+</button>
-            </div>
-            <div className='row'>
-            <button className='btn bg-warning btn-sm' value={'-'} onClick={this.handleOperation} style={bStyle}>-</button>
+            <button className='button' onClick={this.handleDivision} >/</button>
+            <button className='button' onClick={this.handleMultiply} >X</button>
+            <button className='button' onClick={this.handleAddition} >+</button>
+            <button className='button' value={'-'} onClick={this.handleSubtract}>-</button>
 
-            </div>
             
             </>
         );
