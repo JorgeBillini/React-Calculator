@@ -3,15 +3,16 @@ import ExtraOPs from './components/extraOps';
 import Display from './components/display';
 import Ops from './components/ops';
 import Numbers from './components/numbers';
+import Equal from './components/equal'
 
 class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            displayVal : "0",
+            displayVal : null,
             previousVal: null,
             operation: null,
-            waitingForNewValue: true,
+            waitingForNewValue: false,
         }
     }
     
@@ -24,28 +25,42 @@ class App extends React.Component {
     PlusMinusEvent = dv => {
         this.setState({displayVal:dv})
     }
-    addOperation = object => {
-        const {result, opStr} = object;
-        const {displayVal, previousVal, operation, waitingForNewValue} = this.state;
+    resolveOperation = object => {
+        const result = object;
         this.setState({
             displayVal: result, 
             previousVal: null, 
-            operation: opStr, 
-            waitingForNewValue: true})
+            operation: null, 
+            waitingForNewValue: false})
     }
-    
+    addOperation = opStr => {
+      if (this.state.operation){
+          return;
+      }
+        this.setState({operation:opStr,waitingForNewValue:true})
+        console.log(this.state)
+
+    }
     arr= [9,8,7,6,5,4,3,2,1]
 
     
     // RM this
    
      numButtonClick = dvi =>{
-         let newPreviousVal = this.state.displayVal
-         if (this.state.displayVal > 0) {
-             this.setState({previousVal:newPreviousVal,displayVal:dvi})
+         let dv = parseInt(dvi)
+         if(!this.state.displayVal && !this.state.operation && !this.state.previousVal){
+             this.setState({displayVal:dv})
          }
-        else this.setState({displayVal:dvi})
-         console.log(this.state)
+         else if (this.displayVal && !this.state.operation && !this.state.previousVal && !this.state.waitingForNewValue){
+            let newDv = this.state.displayVal + dv;
+            this.setState({displayVal:newDv})
+         }
+         else if (this.state.operation && this.state.waitingForNewValue === true) { 
+             // waiting for new value is true
+             let oldDisplayVal = this.state.displayVal
+             this.setState({displayVal:dv,previousVal:oldDisplayVal})
+         }
+     
     }
     render(){
         return (
@@ -66,7 +81,7 @@ class App extends React.Component {
            <Ops addOperation={this.addOperation} state={this.state}/>
 
             </div>
-            <button >RESOLVE</button>
+            <Equal props={{state:this.state,resolveOperation:this.resolveOperation}} />
             </div>
             
             </>

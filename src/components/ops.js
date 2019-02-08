@@ -46,24 +46,19 @@ class Ops extends React.Component {
     }
 
     handleOperation = (e) => {
-        const {state} = this.props;
-        const {displayVal, previousVal, operation, waitingForNewValue} = state;
-        const opStr = e.target.value;
-
-        if(opStr){
-            if(state.displayVal && state.previousVal && !state.waitingForNewValue){
-                const result = Operation.result(displayVal, previousVal, opStr);
-
-                this.props.addOperation({result, opStr});
-            }
-        }
+        let opStr = e.target.value;
+        this.props.addOperation(opStr);
+        
         //if ('='){
             //take last op, and use pv, and dv with result
-        //}
-
+        //
     }
+  
+   
 
-    render(){
+    
+
+    render() {
         return (
             <>
             <div className='row'>
