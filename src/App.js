@@ -4,12 +4,13 @@ import ExtraOPs from './components/extraOps';
 import Display from './components/display';
 // import Numbers from './components/numbers';
 import Ops from './components/ops';
-import Numbers from './components/numbers'
+import Numbers from './components/numbers';
+
 class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            displayVal : 100,
+            displayVal : "0",
             previousVal: null,
             operation: null,
             waitingForNewValue: false,
@@ -27,18 +28,23 @@ class App extends React.Component {
         const {displayVal} = this.state;
         this.setState({displayVal:dv})
     }
-    addOperation = operator =>{
-        const newOperation = operator
-        this.setState({operation:operator})
+    addOperation = object => {
+        const {result, opStr} = object;
+        const {displayVal, previousVal, operation, waitingForNewValue} = this.state;
+        this.setState({
+            displayVal: result, 
+            previousVal: null, 
+            operation: opStr, 
+            waitingForNewValue: true})
     }
-     arr= [9,8,7,6,5,4,3,2,1]
+    
+    arr= [9,8,7,6,5,4,3,2,1]
 
     render(){
-        console.log(this.state)
         return (
             <>
              <Display displayVal={this.state.displayVal}/>
-             <Ops addOperation={this.addOperation}/>
+             <Ops addOperation={this.addOperation} state={this.state}/>
              <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
             <div className='row'>
             <Numbers className='col' num={7} />
@@ -60,12 +66,6 @@ class App extends React.Component {
             <Numbers className='col' num={'.'} />
             
             </div>
-            
-            
-            
-            
-            
-           
             
             </>
         );
