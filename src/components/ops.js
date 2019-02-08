@@ -78,6 +78,7 @@ class Ops extends React.Component {
             <div className='row'>
                 <button className='btn bg-warning btn-sm' onClick={this.handleOperation} value={'-'} style={bStyle}>-</button>
             </div>
+
             
             </>
         );
