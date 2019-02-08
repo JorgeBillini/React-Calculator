@@ -1,8 +1,6 @@
 import React from 'react';
-import Operation from './helpers/operations';
 import ExtraOPs from './components/extraOps';
 import Display from './components/display';
-// import Numbers from './components/numbers';
 import Ops from './components/ops';
 import Numbers from './components/numbers'
 class App extends React.Component {
@@ -12,7 +10,7 @@ class App extends React.Component {
             displayVal : 0,
             previousVal: null,
             operation: null,
-            waitingForNewValue: false,
+            waitingForNewValue: true,
         }
     }
     
@@ -26,19 +24,18 @@ class App extends React.Component {
         this.setState({displayVal:dv})
     }
     addOperation = operator =>{
+        
         this.setState({operation:operator})
     }
-    performOperation = (num1,num2) =>{ 
-        let newDv = Operation.result(this.state.previousVal,this.state.displayVal,this.state.operation)
-        this.setState({displayVal:newDv})
-    }
-     arr= [9,8,7,6,5,4,3,2,1,'.']
-     buttonClick = dv =>{
+    // RM this
+   
+     arr= [9,8,7,6,5,4,3,2,1]
+     numButtonClick = dvi =>{
          let newPreviousVal = this.state.displayVal
          if (this.state.displayVal > 0) {
-             this.setState({previousVal:newPreviousVal,displayVal:dv})
+             this.setState({previousVal:newPreviousVal,displayVal:dvi})
          }
-        else this.setState({displayVal:dv})
+        else this.setState({displayVal:dvi})
          console.log(this.state)
     }
     render(){
@@ -53,14 +50,14 @@ class App extends React.Component {
              <div className="container-num">
             {
                 this.arr.map((e,i)=>{
-                    return <Numbers props = {{num:e,buttonClick:this.buttonClick}} num={e} />
+                    return <Numbers props = {{num:e,numButtonClick:this.numButtonClick}} num={e} />
                 })
             }
          </div>
             <div className='row-2'>
             <Ops addOperation={this.addOperation}></Ops>
             </div>
-            <button onClick={this.performOperation}>RESOLVE</button>
+            <button >RESOLVE</button>
             </div>
             </>
         );
