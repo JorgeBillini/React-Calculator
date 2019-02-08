@@ -1,17 +1,35 @@
 import React from 'react';
-import {result} from '../helpers/operations';
+import {Operation} from '../helpers/operations';
 import '../app.css'
-/* <p style={button}>*</p> */
+
 const bStyle ={
     padding:`20px 50px 10px 50px`,
     fontSize:`30px`,
  
  }
 
+ /*
+    const {displayVal, previousVal, operation, waitingForNewValue} = this.state;
+
+// gotta pass the state, and do the conditionals in the numbers.js
+if(num is clicked){
+    if(!displayVal){
+        this.setState({displayVal: num})
+    } else {
+        const newDisplayValue = displayVal + num;
+        this.setState({displayVal: newDisplayValue,)
+    }
+
+
+    this.setState({previousVal:displayVal, displayVal:newNum, waitingForNewValue:false})
+
+}
+
+*/
+
 class Ops extends React.Component {
 
     handleDivision = () => {
-        
         this.props.addOperation('/');
     }
 
@@ -28,25 +46,37 @@ class Ops extends React.Component {
     }
 
     handleOperation = (e) => {
-        console.log(e.target.value, 'Is our target');
-        // this.props.addOperation(opStr);
+        const {state} = this.props;
+        const {displayVal, previousVal, operation, waitingForNewValue} = state;
+        const opStr = e.target.value;
+
+        if(opStr){
+            if(state.displayVal && state.previousVal && !state.waitingForNewValue){
+                const result = Operation.result(displayVal, previousVal, opStr);
+
+                this.props.addOperation({result, opStr});
+            }
+        }
+        //if ('='){
+            //take last op, and use pv, and dv with result
+        //}
+
     }
 
     render(){
         return (
             <>
             <div className='row'>
-            <button className='btn bg-warning btn-sm' onClick={this.handleDivision} style={bStyle}>/</button>
+                <button className='btn bg-warning btn-sm' onClick={this.handleOperation} value={'/'} style={bStyle}>/</button>
             </div>
             <div className= 'row'>
-            <button className='btn bg-warning btn-sm' onClick={this.handleMultiply} style={bStyle}>X</button>
+                <button className='btn bg-warning btn-sm' onClick={this.handleOperation} value={'*'} style={bStyle}>*</button>
             </div>
             <div className= 'row'>
-            <button className='btn bg-warning btn-sm' onClick={this.handleAddition} style={bStyle}>+</button>
+                <button className='btn bg-warning btn-sm' onClick={this.handleOperation} value={'+'} style={bStyle}>+</button>
             </div>
             <div className='row'>
-            <button className='btn bg-warning btn-sm' value={'-'} onClick={this.handleOperation} style={bStyle}>-</button>
-
+                <button className='btn bg-warning btn-sm' onClick={this.handleOperation} value={'-'} style={bStyle}>-</button>
             </div>
             
             </>
