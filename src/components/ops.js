@@ -1,5 +1,5 @@
 import React from 'react';
-import {Operation} from '../helpers/operations';
+import Operation from '../helpers/operations';
 import '../app.css'
 
 const bStyle ={
