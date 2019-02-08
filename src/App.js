@@ -1,5 +1,5 @@
 import React from 'react';
-// import Operation from './helpers/operations';
+import Operation from './helpers/operations';
 import ExtraOPs from './components/extraOps';
 import Display from './components/display';
 // import Numbers from './components/numbers';
@@ -27,6 +27,10 @@ class App extends React.Component {
     }
     addOperation = operator =>{
         this.setState({operation:operator})
+    }
+    performOperation = (num1,num2) =>{ 
+        let newDv = Operation.result(this.state.previousVal,this.state.displayVal,this.state.operation)
+        this.setState({displayVal:newDv})
     }
      arr= [9,8,7,6,5,4,3,2,1,'.']
      buttonClick = dv =>{
@@ -56,6 +60,7 @@ class App extends React.Component {
             <div className='row-2'>
             <Ops addOperation={this.addOperation}></Ops>
             </div>
+            <button onClick={this.performOperation}>RESOLVE</button>
             </div>
             </>
         );
