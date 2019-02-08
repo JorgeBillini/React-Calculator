@@ -1,16 +1,65 @@
+.row-1 {
+  background-color: #d8c7e2;
+  display: flex;   
+  flex-wrap: wrap;
+  width: 45% !important;
+  border: 1px solid black;
+}
+
+.row-2 {
+  background-color: #93f2eb;
+  padding: 20px;
+  padding-top: 0px;
+  display: flex;  
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 1px solid black;
+
+}
+
 .button {
-    background-color: #E0E0E6;
-    font-size: 40px;
-    text-align: center;
-    color: #666666;
-    border-left: 1px solid #666666;
-    border-bottom: 1px solid #666666;
-    user-select: none;
-    cursor: pointer;
-    outline: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    display: block;
-  }
+  color:aqua;
+  background-color: yellow;
+  padding: 10px;
+  border-radius: 20px;
+  width: 50px !important;
+  height: 20px !important;
+  margin:5px;
+  text-align: center;
+}
+.num-button {
+  color:aqua;
+  background-color: yellow;
+  padding: 10px;
+  border-radius: 20px;
+  width: 50px;
+  height: 20px;
+  margin:5px;
+  text-align: center;
+}
+.button-bottom{
+  width: 90px;
+  height: 20px;
+}
+
+.ex-op{
+  margin-top: 0;
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid black;
+}
+
+.container-num{
+  margin-top: 0;
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  /* width:0%; */
+}
+
   
   button:active {
     box-shadow: inset 0px 0px 80px 0px rgba(0,0,0,0.25);

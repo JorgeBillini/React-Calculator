@@ -1,22 +1,19 @@
 import React from 'react';
 
-const bStyle ={
-    padding:`20px 50px 10px 50px`,
-    fontSize:`30px`,
-    color:'black'
- }
 
-class Numbers extends React.Component {
-    constructor(props){
-        super(props)
+const Numbers = (props) =>{
+    const handleButtonClick = (e) => {
+        let newDisplayVal = e.target.value
+        props.props.buttonClick(newDisplayVal)
     }
-    render(){
-        return (
-            <button className='button' style={bStyle}>{this.props.num}</button>
+    return (
+        <button className='num-button' onClick={handleButtonClick} value={props.num}>{props.num}</button>
 
-            
-        )
-    } 
-}
+        
+    )
+} 
 
-export default Numbers;
+    
+
+
+export default Numbers
