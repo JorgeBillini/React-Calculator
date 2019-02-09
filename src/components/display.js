@@ -11,7 +11,7 @@ const jumbo = {
 class Display extends React.Component {
     render(){
         return ( 
-            <h1 style={jumbo}>{this.props.waitingForNewValue ? "": this.props.displayVal}</h1>
+            <h1 style={jumbo}>{ this.props.displayVal}</h1>
         );
     } 
 }

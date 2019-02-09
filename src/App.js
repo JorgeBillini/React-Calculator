@@ -35,14 +35,13 @@ class App extends React.Component {
             waitingForNewValue: false})
     }
     addOperation = opStr => {
-        console.log(this.state ,'current state in addops')
+       let newDisplayVal = ''
         let newPreviousValue = this.state.displayVal
         console.log(newPreviousValue)
       if (this.state.operation){
           return;
       }
-        this.setState({operation:opStr,waitingForNewValue:true,previousVal:newPreviousValue})
-        console.log(this.state)
+        this.setState({operation:opStr,waitingForNewValue:true,previousVal:newPreviousValue,displayVal:''})
 
     }
     arr= [9,8,7,6,5,4,3,2,1]
@@ -51,8 +50,31 @@ class App extends React.Component {
     // RM this
    
      numButtonClick = dvi =>{
-         const newDv = dvi;
-        this.setState({displayVal:dvi})
+         // DO NOT ADD ANY MORE NUMS AFTER 8 CHARS
+         console.log(this.state)
+         if (this.state.displayVal.length >= 8){
+             return;
+         }
+         else if (this.state.waitingForNewValue === false) {
+             let newDisplayVal;
+             if (this.state.displayVal === ''){
+                newDisplayVal = `${dvi}`;
+             }
+            newDisplayVal = this.state.displayVal + dvi;
+            this.setState({displayVal:newDisplayVal})
+         }
+        //operation:opStr,waitingForNewValue:true,previousVal:newPreviousValue
+        else if (this.state.waitingForNewValue === true ){
+            console.log('DV is ' , this.state.displayVal)
+            let newDisplayVal;
+            if (this.state.displayVal === ''){
+                newDisplayVal = `${dvi}`;
+            }
+            newDisplayVal = this.state.displayVal + dvi;
+            this.setState({displayVal:newDisplayVal})
+
+        }
+        else this.setState({displayVal:dvi})
          
      
     }
