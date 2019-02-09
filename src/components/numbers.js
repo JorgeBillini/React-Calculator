@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Numbers = (props) =>{
+const Numbers = (props) => {
     const handleButtonClick = (e) => {
         let newDisplayVal = e.target.value
         props.props.numButtonClick(newDisplayVal)

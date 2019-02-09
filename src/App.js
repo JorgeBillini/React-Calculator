@@ -9,7 +9,7 @@ class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            displayVal : null,
+            displayVal : "",
             previousVal: null,
             operation: null,
             waitingForNewValue: false,
@@ -26,18 +26,22 @@ class App extends React.Component {
         this.setState({displayVal:dv})
     }
     resolveOperation = object => {
+        console.log(this.state)
+        let newPreviousValue = this.state.displayVal
         const result = object;
         this.setState({
             displayVal: result, 
-            previousVal: null, 
             operation: null, 
             waitingForNewValue: false})
     }
     addOperation = opStr => {
+        console.log(this.state ,'current state in addops')
+        let newPreviousValue = this.state.displayVal
+        console.log(newPreviousValue)
       if (this.state.operation){
           return;
       }
-        this.setState({operation:opStr,waitingForNewValue:true})
+        this.setState({operation:opStr,waitingForNewValue:true,previousVal:newPreviousValue})
         console.log(this.state)
 
     }
@@ -47,25 +51,15 @@ class App extends React.Component {
     // RM this
    
      numButtonClick = dvi =>{
-         let dv = parseInt(dvi)
-         if(!this.state.displayVal && !this.state.operation && !this.state.previousVal){
-             this.setState({displayVal:dv})
-         }
-         else if (this.displayVal && !this.state.operation && !this.state.previousVal && !this.state.waitingForNewValue){
-            let newDv = this.state.displayVal + dv;
-            this.setState({displayVal:newDv})
-         }
-         else if (this.state.operation && this.state.waitingForNewValue === true) { 
-             // waiting for new value is true
-             let oldDisplayVal = this.state.displayVal
-             this.setState({displayVal:dv,previousVal:oldDisplayVal})
-         }
+         const newDv = dvi;
+        this.setState({displayVal:dvi})
+         
      
     }
     render(){
         return (
             <>
-             <Display displayVal={this.state.displayVal}/>
+             <Display displayVal={this.state.displayVal} waitingForNewValue={this.waitingForNewValue}/>
              <div className='container'>
              <div className='row-1 '>
              <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
@@ -73,7 +67,7 @@ class App extends React.Component {
              <div className="container-num">
             {
                 this.arr.map((e,i)=>{
-                    return <Numbers props = {{num:e,numButtonClick:this.numButtonClick}} num={e} />
+                    return <Numbers props = {{num:e,numButtonClick:this.numButtonClick,state:this.state}} num={e} />
                 })
             }
          </div>
