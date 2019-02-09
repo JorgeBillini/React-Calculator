@@ -53,10 +53,6 @@ class Ops extends React.Component {
             //take last op, and use pv, and dv with result
         //
     }
-  
-   
-
-    
 
     render() {
         return (

@@ -1,11 +1,7 @@
 import React from 'react';
 // import  from '../helpers/operations'
 //this.props.datalol.displayVal
-const bStyle ={
-    padding:`20px 50px 10px 50px`,
-    fontSize:`30px`,
- 
- }
+
 class ExtraOps extends React.Component{
     constructor(props){
         super(props);

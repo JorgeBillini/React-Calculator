@@ -68,7 +68,7 @@ class App extends React.Component {
          }
          // CREATE NEW DV if we are waiting for a new value to be inserted 
         //operation:opStr,waitingForNewValue:true,previousVal:newPreviousValue
-        else if (this.state.waitingForNewValue === true ){
+        else if (this.state.waitingForNewValue === true && this.state.operation){
             console.log('DV is ' , this.state.displayVal)
             let newDisplayVal;
             if (this.state.displayVal === ''){
