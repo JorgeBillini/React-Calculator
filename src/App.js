@@ -4,6 +4,7 @@ import Display from './components/display';
 import Ops from './components/ops';
 import Numbers from './components/numbers';
 import Equal from './components/equal'
+import Period from './components/period'
 
 class App extends React.Component {
     constructor(props){
@@ -25,6 +26,9 @@ class App extends React.Component {
     PlusMinusEvent = dv => {
         this.setState({displayVal:dv})
     }
+    PeriodEvent = dv => {
+        this.setState({displayVal:dv})
+    }
     resolveOperation = object => {
         console.log(this.state)
         let newPreviousValue = this.state.displayVal
@@ -35,7 +39,6 @@ class App extends React.Component {
             waitingForNewValue: false})
     }
     addOperation = opStr => {
-       let newDisplayVal = ''
         let newPreviousValue = this.state.displayVal
         console.log(newPreviousValue)
       if (this.state.operation){
@@ -44,7 +47,7 @@ class App extends React.Component {
         this.setState({operation:opStr,waitingForNewValue:true,previousVal:newPreviousValue,displayVal:''})
 
     }
-    arr= [9,8,7,6,5,4,3,2,1]
+    arr= [9,8,7,6,5,4,3,2,1,0]
 
     
     // RM this
@@ -63,6 +66,7 @@ class App extends React.Component {
             newDisplayVal = this.state.displayVal + dvi;
             this.setState({displayVal:newDisplayVal})
          }
+         // CREATE NEW DV if we are waiting for a new value to be inserted 
         //operation:opStr,waitingForNewValue:true,previousVal:newPreviousValue
         else if (this.state.waitingForNewValue === true ){
             console.log('DV is ' , this.state.displayVal)
@@ -92,6 +96,7 @@ class App extends React.Component {
                     return <Numbers props = {{num:e,numButtonClick:this.numButtonClick,state:this.state}} num={e} />
                 })
             }
+            <Period PeriodEvent={this.PeriodEvent} num={this.state.displayVal} />
          </div>
             <div className='row-2'>
            <Ops addOperation={this.addOperation} state={this.state}/>
