@@ -1,11 +1,7 @@
 import React from 'react';
 // import  from '../helpers/operations'
 //this.props.datalol.displayVal
-const bStyle ={
-    padding:`20px 50px 10px 50px`,
-    fontSize:`30px`,
- 
- }
+
 class ExtraOps extends React.Component{
     constructor(props){
         super(props);
@@ -14,7 +10,7 @@ class ExtraOps extends React.Component{
         }
     }
     HandleAcClick = () =>{
-        let newDisplayVal = 0;
+        let newDisplayVal = '';
         this.props.ACevent(newDisplayVal)
         
     }
@@ -32,7 +28,7 @@ class ExtraOps extends React.Component{
     render (){
         return (
             <>
-            <button className='button' onClick={this.HandleAcClick} > AC</button>
+            <button className='button' onClick={this.HandleAcClick} >{this.props.displayVal ==='' ? 'AC':'C'}</button>
             <button className='button' onClick={this.HandlePercentage} > % </button>
             <button className='button' onClick={this.HandlePositiveNegative} >±</button>
 

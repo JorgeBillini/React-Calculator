@@ -26,14 +26,16 @@ Operation.percentage = (num) => num / 100;
 Operation.convertPos_Neg = (num) => num * -1;
 
 Operation.result = (num1, num2, opStr) => {
+   num1 = parseFloat(num1)
+    num2 = parseFloat(num2)
     if (opStr === '*') {
         return multiply(num1, num2)
     } else if (opStr === '+') {
         return add(num1, num2);
     } else if (opStr === '-') {
-        return subtract(num1, num2);
+        return subtract(num2, num1);
     } else if (opStr === '/') {
-        return divide(num1, num2);
+        return divide(num2, num1);
     }
 }
 
