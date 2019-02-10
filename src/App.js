@@ -121,7 +121,7 @@ class App extends React.Component {
             
          </div>
             <div className='row-2'>
-           <Ops addOperation={this.addOperation} state={this.state}/>
+           
 
             </div>
             <Equal props={{state:this.state,resolveOperation:this.resolveOperation}} />
