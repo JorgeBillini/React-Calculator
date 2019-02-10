@@ -83,25 +83,6 @@
   -webkit-text-stroke-color: black;
 }
 
-.num-button {
-  color:aqua;
-  background-color: yellow;
-  padding: 10px;
-  border-radius: 20px;
-  width: 50px;
-  height: 20px;
-  margin:5px;
-  text-align: center;
-}
-
-.button-bottom{
-  width: 90px;
-  height: 20px;
-}
-
-.ex-op{
-  margin-top: 0;
-}
   
 button:active {
   /* background-color: #ff7b00; */
