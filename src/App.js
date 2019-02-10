@@ -17,11 +17,11 @@ class App extends React.Component {
         }
     }
     
-    ACevent = dv =>{
+    ACevent = dv => {
     this.setState({displayVal:dv});
     }
 
-    Percevent = dv =>{
+    Percevent = dv => {
         this.setState({displayVal:dv})
     }
 
@@ -42,6 +42,7 @@ class App extends React.Component {
             operation: null, 
             waitingForNewValue: false})
     }
+
     addOperation = opStr => {
         let newPreviousValue = this.state.displayVal
         console.log(newPreviousValue)
@@ -51,12 +52,8 @@ class App extends React.Component {
         this.setState({operation:opStr,waitingForNewValue:true,previousVal:newPreviousValue,displayVal:''})
 
     }
-    arr= [9,8,7,6,5,4,3,2,1,0]
-
-    
-    // RM this
    
-     numButtonClick = dvi =>{
+    numButtonClick = dvi =>{
          // DO NOT ADD ANY MORE NUMS AFTER 8 CHARS
          console.log(this.state)
          if (this.state.displayVal.length >= 8){
@@ -83,13 +80,40 @@ class App extends React.Component {
 
         }
         else this.setState({displayVal:dvi})
-         
-     
-    }
+        }
+
+        arr = [9,8,7,6,5,4,3,2,1,0]
+
     render(){
         return (
             <>
-             <Display displayVal={this.state.displayVal} waitingForNewValue={this.waitingForNewValue}/>
+            <div className='calculator dark-blue'>
+                    {/* <Display displayVal={this.state.displayVal}/> */}
+                    <Display displayVal={this.state.displayVal} waitingForNewValue={this.waitingForNewValue}/>
+                    <div className='container-col light-green'>
+                        <div className='container-col-num'>
+                            <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
+                            {
+                                    this.arr.map((e,i)=>{
+                                        return <Numbers props={{num:e,numButtonClick:this.numButtonClick}} num={e} />
+                                    })
+                            }
+                            <button className='button'>.</button>
+                        </div>
+
+                        <div className='col-2'>
+                            <Ops addOperation={this.addOperation} state={this.state}/>
+                            <button className='button orange'>=</button>
+                        </div>
+                    </div>
+                    
+                </div>
+
+
+
+
+
+             
              <div className='container'>
              <div className='row-1 '>
              <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
