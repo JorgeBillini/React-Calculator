@@ -1,10 +1,10 @@
 import React from 'react';
-import ExtraOPs from './components/extraOps';
 import Display from './components/display';
-import Ops from './components/ops';
+import Equal from './components/equal';
+import ExtraOPs from './components/extraOps';
 import Numbers from './components/numbers';
-import Equal from './components/equal'
-import Period from './components/period'
+import Ops from './components/ops';
+import Period from './components/period';
 
 class App extends React.Component {
     constructor(props){
@@ -20,15 +20,19 @@ class App extends React.Component {
     ACevent = dv =>{
     this.setState({displayVal:dv});
     }
+
     Percevent = dv =>{
         this.setState({displayVal:dv})
     }
+
     PlusMinusEvent = dv => {
         this.setState({displayVal:dv})
     }
+
     PeriodEvent = dv => {
         this.setState({displayVal:dv})
     }
+
     resolveOperation = object => {
         console.log(this.state)
         let newPreviousValue = this.state.displayVal
