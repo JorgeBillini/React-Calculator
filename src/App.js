@@ -88,7 +88,6 @@ class App extends React.Component {
         return (
             <>
             <div className='calculator dark-blue'>
-                    {/* <Display displayVal={this.state.displayVal}/> */}
                     <Display displayVal={this.state.displayVal} waitingForNewValue={this.waitingForNewValue}/>
                     <div className='container-col light-green'>
                         <div className='container-col-num'>
@@ -116,7 +115,6 @@ class App extends React.Component {
              
              <div className='container'>
              <div className='row-1 '>
-             <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
              </div>
              <div className="container-num">
             {
