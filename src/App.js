@@ -18,7 +18,7 @@ class App extends React.Component {
     }
     
     ACevent = dv => {
-    this.setState({displayVal:dv});
+    this.setState({displayVal:dv,previousVal:null,operation:null});
     }
 
     Percevent = dv => {
