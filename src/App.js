@@ -92,17 +92,12 @@ class App extends React.Component {
                     <div className='container-col light-green'>
                         <div className='container-col-num'>
                             <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
-                            {/* {
-                                    this.arr.map((e,i)=>{
-                                        return <Numbers props={{num:e,numButtonClick:this.numButtonClick}} num={e} />
-                                    })
-                            } */}
                             {
                                 this.arr.map((e,i)=>{
                                     return <Numbers props={{num:e,numButtonClick:this.numButtonClick,state:this.state}} num={e}/>
                                 })
                             }
-                            <button className='button'>.</button>
+                            <Period PeriodEvent={this.PeriodEvent} num={this.state.displayVal} />
                         </div>
 
                         <div className='col-2'>
@@ -123,7 +118,7 @@ class App extends React.Component {
              </div>
              <div className="container-num">
             
-            <Period PeriodEvent={this.PeriodEvent} num={this.state.displayVal} />
+            
          </div>
             <div className='row-2'>
            <Ops addOperation={this.addOperation} state={this.state}/>
