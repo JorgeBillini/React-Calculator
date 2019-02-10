@@ -87,46 +87,26 @@ class App extends React.Component {
     render(){
         return (
             <>
-            <div className='calculator dark-blue'>
-                    <Display displayVal={this.state.displayVal} waitingForNewValue={this.waitingForNewValue}/>
-                    <div className='container-col light-green'>
-                        <div className='container-col-num'>
-                            <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
-                            {
-                                this.arr.map((e,i)=>{
-                                    return <Numbers props={{num:e,numButtonClick:this.numButtonClick,state:this.state}} num={e}/>
-                                })
-                            }
-                            <Period PeriodEvent={this.PeriodEvent} num={this.state.displayVal} />
-                        </div>
+                <div className='calculator dark-blue'>
+                        <Display displayVal={this.state.displayVal} waitingForNewValue={this.waitingForNewValue}/>
+                        <div className='container-col light-green'>
+                            <div className='container-col-num'>
+                                <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
+                                {
+                                    this.arr.map((e,i)=>{
+                                        return <Numbers props={{num:e,numButtonClick:this.numButtonClick,state:this.state}} num={e}/>
+                                    })
+                                }
+                                <Period PeriodEvent={this.PeriodEvent} num={this.state.displayVal} />
+                            </div>
 
-                        <div className='col-2'>
-                            <Ops addOperation={this.addOperation} state={this.state}/>
-                            <button className='button orange'>=</button>
+                            <div className='col-2'>
+                                <Ops addOperation={this.addOperation} state={this.state}/>
+                                {/* <button className='button orange'>=</button> */}
+                                <Equal props={{state:this.state,resolveOperation:this.resolveOperation}} />
+                            </div>
                         </div>
-                    </div>
-                    
                 </div>
-
-
-
-
-
-             
-             <div className='container'>
-             <div className='row-1 '>
-             </div>
-             <div className="container-num">
-            
-            
-         </div>
-            <div className='row-2'>
-           
-
-            </div>
-            <Equal props={{state:this.state,resolveOperation:this.resolveOperation}} />
-            </div>
-            
             </>
         );
     }

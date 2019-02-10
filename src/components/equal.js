@@ -1,5 +1,6 @@
-import Operation from '../helpers/operations'
-import React from 'react'
+import Operation from '../helpers/operations';
+import React from 'react';
+
 const Equal = props =>{
     const handleOp = e =>{
         console.log(props.props.state.displayVal)
@@ -13,9 +14,9 @@ const Equal = props =>{
     }
     return(
         <>
-        <button onClick={handleOp}>RESOLVE</button>
+        <button className='button' onClick={handleOp}>=</button>
         </>
-    )
+    );
 }
 
 export default Equal;
