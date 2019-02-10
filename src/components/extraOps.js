@@ -1,6 +1,5 @@
 import React from 'react';
-// import  from '../helpers/operations'
-//this.props.datalol.displayVal
+// import  from '../helpers/operations';
 
 class ExtraOps extends React.Component{
     constructor(props){
@@ -9,10 +8,10 @@ class ExtraOps extends React.Component{
             isThereDisplay: false
         }
     }
+
     HandleAcClick = () =>{
         let newDisplayVal = '';
         this.props.ACevent(newDisplayVal)
-        
     }
     
     HandlePercentage = () =>{
@@ -20,20 +19,21 @@ class ExtraOps extends React.Component{
         let newDisplayVal = this.props.displayVal / 100;
         this.props.Percevent(newDisplayVal);
     }
+
     HandlePositiveNegative = () =>{
         console.log(typeof(this.props.displayVal))
         let newDisplayVal = this.props.displayVal * -1;
         this.props.PlusMinusEvent(newDisplayVal);
     }
+
     render (){
         return (
             <>
-            <button className='button' onClick={this.HandleAcClick} >{this.props.displayVal ==='' ? 'AC':'C'}</button>
-            <button className='button' onClick={this.HandlePercentage} > % </button>
-            <button className='button' onClick={this.HandlePositiveNegative} >±</button>
-
-        </>
-        )
+                <button className='button orange' onClick={this.HandleAcClick}>{this.props.displayVal ==='' ? 'AC':'C'}</button>
+                <button className='button orange' onClick={this.HandlePercentage}> % </button>
+                <button className='button orange' onClick={this.HandlePositiveNegative}>±</button>
+            </>
+        );
         
     }
 }

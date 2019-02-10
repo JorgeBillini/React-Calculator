@@ -1,10 +1,10 @@
 import React from 'react';
-import ExtraOPs from './components/extraOps';
 import Display from './components/display';
-import Ops from './components/ops';
+import Equal from './components/equal';
+import ExtraOPs from './components/extraOps';
 import Numbers from './components/numbers';
-import Equal from './components/equal'
-import Period from './components/period'
+import Ops from './components/ops';
+import Period from './components/period';
 
 class App extends React.Component {
     constructor(props){
@@ -17,18 +17,22 @@ class App extends React.Component {
         }
     }
     
-    ACevent = dv =>{
+    ACevent = dv => {
     this.setState({displayVal:dv});
     }
-    Percevent = dv =>{
+
+    Percevent = dv => {
         this.setState({displayVal:dv})
     }
+
     PlusMinusEvent = dv => {
         this.setState({displayVal:dv})
     }
+
     PeriodEvent = dv => {
         this.setState({displayVal:dv})
     }
+
     resolveOperation = object => {
         console.log(this.state)
         let newPreviousValue = this.state.displayVal
@@ -38,6 +42,7 @@ class App extends React.Component {
             operation: null, 
             waitingForNewValue: false})
     }
+
     addOperation = opStr => {
         let newPreviousValue = this.state.displayVal
         console.log(newPreviousValue)
@@ -47,12 +52,8 @@ class App extends React.Component {
         this.setState({operation:opStr,waitingForNewValue:true,previousVal:newPreviousValue,displayVal:''})
 
     }
-    arr= [9,8,7,6,5,4,3,2,1,0]
-
-    
-    // RM this
    
-     numButtonClick = dvi =>{
+    numButtonClick = dvi =>{
          // DO NOT ADD ANY MORE NUMS AFTER 8 CHARS
          console.log(this.state)
          if (this.state.displayVal.length >= 8){
@@ -79,32 +80,33 @@ class App extends React.Component {
 
         }
         else this.setState({displayVal:dvi})
-         
-     
-    }
+        }
+
+        arr = [9,8,7,6,5,4,3,2,1,0]
+
     render(){
         return (
             <>
-             <Display displayVal={this.state.displayVal} waitingForNewValue={this.waitingForNewValue}/>
-             <div className='container'>
-             <div className='row-1 '>
-             <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
-             </div>
-             <div className="container-num">
-            {
-                this.arr.map((e,i)=>{
-                    return <Numbers props = {{num:e,numButtonClick:this.numButtonClick,state:this.state}} num={e} />
-                })
-            }
-            <Period PeriodEvent={this.PeriodEvent} num={this.state.displayVal} />
-         </div>
-            <div className='row-2'>
-           <Ops addOperation={this.addOperation} state={this.state}/>
+                <div className='calculator dark-blue'>
+                        <Display displayVal={this.state.displayVal} waitingForNewValue={this.waitingForNewValue}/>
+                        <div className='container-col light-green'>
+                            <div className='container-col-num'>
+                                <ExtraOPs ACevent={this.ACevent} Percevent={this.Percevent} PlusMinusEvent={this.PlusMinusEvent} displayVal= {this.state.displayVal} />
+                                {
+                                    this.arr.map((e,i)=>{
+                                        return <Numbers props={{num:e,numButtonClick:this.numButtonClick,state:this.state}} num={e}/>
+                                    })
+                                }
+                                <Period PeriodEvent={this.PeriodEvent} num={this.state.displayVal} />
+                            </div>
 
-            </div>
-            <Equal props={{state:this.state,resolveOperation:this.resolveOperation}} />
-            </div>
-            
+                            <div className='col-2'>
+                                <Ops addOperation={this.addOperation} state={this.state}/>
+                                {/* <button className='button orange'>=</button> */}
+                                <Equal props={{state:this.state,resolveOperation:this.resolveOperation}} />
+                            </div>
+                        </div>
+                </div>
             </>
         );
     }

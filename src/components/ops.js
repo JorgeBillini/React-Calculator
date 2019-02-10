@@ -2,12 +2,6 @@ import React from 'react';
 import Operation from '../helpers/operations';
 import '../app.css'
 
-const bStyle ={
-    padding:`20px 50px 10px 50px`,
-    fontSize:`30px`,
- 
- }
-
  /*
     const {displayVal, previousVal, operation, waitingForNewValue} = this.state;
 
@@ -48,29 +42,15 @@ class Ops extends React.Component {
     handleOperation = (e) => {
         let opStr = e.target.value;
         this.props.addOperation(opStr);
-        
-        //if ('='){
-            //take last op, and use pv, and dv with result
-        //
     }
 
     render() {
         return (
             <>
-            <div className='row'>
-                <button className='btn bg-warning btn-sm' onClick={this.handleOperation} value={'/'} style={bStyle}>/</button>
-            </div>
-            <div className= 'row'>
-                <button className='btn bg-warning btn-sm' onClick={this.handleOperation} value={'*'} style={bStyle}>*</button>
-            </div>
-            <div className= 'row'>
-                <button className='btn bg-warning btn-sm' onClick={this.handleOperation} value={'+'} style={bStyle}>+</button>
-            </div>
-            <div className='row'>
-                <button className='btn bg-warning btn-sm' onClick={this.handleOperation} value={'-'} style={bStyle}>-</button>
-            </div>
-
-            
+                <button className='button orange' onClick={this.handleOperation} value={'/'}>/</button>
+                <button className='button orange' onClick={this.handleOperation} value={'*'}>*</button>
+                <button className='button orange' onClick={this.handleOperation} value={'+'}>+</button>
+                <button className='button orange' onClick={this.handleOperation} value={'-'}>-</button>
             </>
         );
     } 
